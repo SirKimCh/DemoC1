@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using Demo2.Model;
 
-namespace Demo2
+namespace Demo2.Service
 {
     public class StudentService
     {
