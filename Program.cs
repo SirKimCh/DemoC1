@@ -139,6 +139,7 @@ namespace Demo2
                     mainChoice = Console.ReadLine();
                 }
 
+                //Do something
                 Console.WriteLine();
             }
         }
