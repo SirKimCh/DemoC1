@@ -38,6 +38,7 @@ namespace Demo2.Service
 
         public void PrintAllMajors()
         {
+            if(Validation.MyLib.IsListEmpty(majors, "No majors found.")) return;
             foreach (var major in majors)
             {
                 Console.WriteLine($"ID: {major.Id}, Name: {major.Name}");

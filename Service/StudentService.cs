@@ -39,6 +39,7 @@ namespace Demo2.Service
 
         public void PrintAllStudents()
         {
+            if(Validation.MyLib.IsListEmpty(students, "No students found.")) return;
             foreach (var student in students)
             {
                 Console.WriteLine($"ID: {student.Id}, Name: {student.Name}, Age: {student.Age}");
