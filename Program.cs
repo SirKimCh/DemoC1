@@ -16,11 +16,11 @@ namespace Demo2
             Console.WriteLine("1. Student Manager");
             Console.WriteLine("2. Major Manager");
             Console.Write("Enter your choice: ");
-            string mainChoice = Console.ReadLine();
+            int mainChoice = Validation.MyLib.GetIntInput("Only chose form 1 to 2",1,2);
 
             while (!exit)
             {
-                if (mainChoice == "1")
+                if (mainChoice == 1)
                 {
                     Console.WriteLine("Student Manager Menu:");
                     Console.WriteLine("1. List all Students");
@@ -38,9 +38,10 @@ namespace Demo2
                             break;
                         case "2":
                             Console.Write("Enter Name: ");
-                            string name = Console.ReadLine();
+                            string name = Validation.MyLib.GetStringInput("Name must be have more " +
+                                "than one word and not null");
                             Console.Write("Enter Age: ");
-                            int age = int.Parse(Console.ReadLine());
+                            int age = Validation.MyLib.GetIntInput("Age must be between 17 and 30", 17, 30);
                             studentService.AddStudent(name, age);
                             break;
                         case "3":
@@ -65,9 +66,10 @@ namespace Demo2
                                 break;
                             }
                             Console.Write("Enter new Name: ");
-                            string newName = Console.ReadLine();
+                            string newName = Validation.MyLib.GetStringInput("Name must be have more " +
+                                "than one word and not null");
                             Console.Write("Enter new Age: ");
-                            int newAge = int.Parse(Console.ReadLine());
+                            int newAge = Validation.MyLib.GetIntInput("Age must be between 17 and 30", 17, 30);
                             studentService.EditStudent(editId, newName, newAge);
                             break;
                         case "0":
@@ -78,7 +80,7 @@ namespace Demo2
                             break;
                     }
                 }
-                else if (mainChoice == "2")
+                else if (mainChoice == 2)
                 {
                     Console.WriteLine("Major Manager Menu:");
                     Console.WriteLine("1. List all Majors");
@@ -136,7 +138,7 @@ namespace Demo2
                 {
                     Console.WriteLine("Invalid choice. Please try again.");
                     Console.Write("Enter your choice: ");
-                    mainChoice = Console.ReadLine();
+                    mainChoice = Validation.MyLib.GetIntInput("Only chose form 1 to 2", 1, 2);
                 }
 
                 //Do something
