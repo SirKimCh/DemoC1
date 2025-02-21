@@ -29,14 +29,14 @@ namespace Demo2
                     Console.WriteLine("4. Edit Student by ID");
                     Console.WriteLine("0. Exit");
                     Console.Write("Enter your choice: ");
-                    string choice = Console.ReadLine();
+                    int choice = Validation.MyLib.GetIntInput("Only chose form 0 to 4", 0, 4);
 
                     switch (choice)
                     {
-                        case "1":
+                        case 1:
                             studentService.PrintAllStudents();
                             break;
-                        case "2":
+                        case 2:
                             Console.Write("Enter Name: ");
                             string name = Validation.MyLib.GetStringInput("Name must be have more " +
                                 "than one word and not null");
@@ -44,7 +44,7 @@ namespace Demo2
                             int age = Validation.MyLib.GetIntInput("Age must be between 17 and 30", 17, 30);
                             studentService.AddStudent(name, age);
                             break;
-                        case "3":
+                        case 3:
                             Console.Write("Enter ID of the student to delete: ");
                             int deleteId = int.Parse(Console.ReadLine());
                             Student? studentToDelete = studentService.FindStudentById(deleteId);
@@ -57,7 +57,7 @@ namespace Demo2
                                 Console.WriteLine("Student not found.");
                             }
                             break;
-                        case "4":
+                        case 4:
                             Console.Write("Enter ID of the student to edit: ");
                             int editId = int.Parse(Console.ReadLine());
                             if (studentService.FindStudentById(editId) == null)
@@ -72,7 +72,7 @@ namespace Demo2
                             int newAge = Validation.MyLib.GetIntInput("Age must be between 17 and 30", 17, 30);
                             studentService.EditStudent(editId, newName, newAge);
                             break;
-                        case "0":
+                        case 0:
                             exit = true;
                             break;
                         default:
@@ -89,19 +89,20 @@ namespace Demo2
                     Console.WriteLine("4. Edit Major by ID");
                     Console.WriteLine("0. Exit");
                     Console.Write("Enter your choice: ");
-                    string choice = Console.ReadLine();
+                    int choice = Validation.MyLib.GetIntInput("Only chose form 0 to 4", 0, 4);
 
                     switch (choice)
                     {
-                        case "1":
+                        case 1:
                             majorService.PrintAllMajors();
                             break;
-                        case "2":
+                        case 2:
                             Console.Write("Enter Name: ");
-                            string name = Console.ReadLine();
+                            string name = Validation.MyLib.GetStringInput("Name must be have more " +
+                                "than one word and not null");
                             majorService.AddMajor(name);
                             break;
-                        case "3":
+                        case 3:
                             Console.Write("Enter ID of the major to delete: ");
                             int deleteId = int.Parse(Console.ReadLine());
                             Major? majorToDelete = majorService.FindMajorById(deleteId);
@@ -114,7 +115,7 @@ namespace Demo2
                                 Console.WriteLine("Major not found.");
                             }
                             break;
-                        case "4":
+                        case 4:
                             Console.Write("Enter ID of the major to edit: ");
                             int editId = int.Parse(Console.ReadLine());
                             if (majorService.FindMajorById(editId) == null)
@@ -123,10 +124,11 @@ namespace Demo2
                                 break;
                             }
                             Console.Write("Enter new Name: ");
-                            string newName = Console.ReadLine();
+                            string newName = Validation.MyLib.GetStringInput("Name must be have more " +
+                                "than one word and not null");
                             majorService.EditMajor(editId, newName);
                             break;
-                        case "0":
+                        case 0:
                             exit = true;
                             break;
                         default:
@@ -140,8 +142,6 @@ namespace Demo2
                     Console.Write("Enter your choice: ");
                     mainChoice = Validation.MyLib.GetIntInput("Only chose form 1 to 2", 1, 2);
                 }
-
-                //Do something
                 Console.WriteLine();
             }
         }
